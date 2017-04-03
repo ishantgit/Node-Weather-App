@@ -33,13 +33,16 @@ hbs.registerHelper('getCurrentYear',() => {
 
 app.get('/',(req,res) => {
   //res.send('<h1>Hello Express!</h1>');
-  res.send({
-    name: 'Ishant',
-    like: [
-      'yo',
-      'nfjdn'
-    ]
+  res.render('home.hbs',{
+    pageTitle: 'Home'
   });
+  // res.send({
+  //   name: 'Ishant',
+  //   like: [
+  //     'yo',
+  //     'nfjdn'
+  //   ]
+  // });
 });
 
 app.get('/about',(req,res) => {
@@ -48,6 +51,13 @@ app.get('/about',(req,res) => {
     currentYear: new Date().getFullYear()
   });
   //res.send('About Page');
+});
+
+
+app.get('/projects',(req,res) => {
+  res.render('projects.hbs',{
+    pageTitle: 'Projects'
+  })
 });
 
 app.get('/bad',(req,res) => {
